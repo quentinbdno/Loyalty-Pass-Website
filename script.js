@@ -8,12 +8,14 @@ if (qrButton && qrPanel) {
     if (isHidden) {
       qrPanel.removeAttribute("hidden");
       qrPanel.classList.add("is-visible");
-      qrButton.textContent = "Masquer le QR code";
+      qrButton.textContent = "Masquer le QR code sécurisé";
+      qrButton.setAttribute("aria-expanded", "true");
       return;
     }
 
     qrPanel.setAttribute("hidden", "");
     qrPanel.classList.remove("is-visible");
-    qrButton.textContent = "Afficher le QR code";
+    qrButton.textContent = "Afficher le QR code sécurisé";
+    qrButton.setAttribute("aria-expanded", "false");
   });
 }

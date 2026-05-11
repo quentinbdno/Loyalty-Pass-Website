@@ -3,309 +3,424 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loyalty Pass — Cartes de fidélité dématérialisées</title>
+    <title>Loyalty Pass — Carte de fidélité digitale multi-magasins</title>
     <meta
       name="description"
-      content="Site vitrine statique présentant le fonctionnement de Loyalty Pass, ses parcours client et vendeur, ainsi que sa politique de confidentialité."
+      content="Loyalty Pass est une application mobile de fidélité digitale multi-magasins pour cumuler des points, suivre ses récompenses et présenter un QR code sécurisé en magasin."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="background-orb orb-a"></div>
+    <div class="background-orb orb-b"></div>
+
     <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar">
+      <header class="hero" id="top">
+        <nav class="topbar" aria-label="Navigation principale">
           <a class="brand" href="#top">
             <span class="brand-mark">LP</span>
             <span>
               <strong>Loyalty Pass</strong>
-              <small>Carte de fidélité digitale</small>
+              <small>Fidélité digitale multi-magasins</small>
             </span>
           </a>
+
           <div class="nav-links">
-            <a href="#experience">Expérience</a>
-            <a href="#screens">Écrans</a>
+            <a href="#client">Fonctionnement client</a>
+            <a href="#seller">Espace vendeur</a>
             <a href="#privacy">Confidentialité</a>
+            <a href="#contact">Contact</a>
           </div>
         </nav>
 
-        <div class="hero-content" id="top">
+        <div class="hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Application mobile • QR code • fidélité instantanée</span>
-            <h1>Une carte de fidélité plus simple à utiliser, pour le client comme pour le vendeur.</h1>
-            <p>
-              Loyalty Pass remplace les cartes papier par un parcours fluide : le client affiche son QR code, le vendeur le
-              scanne, et le point de passage est crédité en quelques secondes.
+            <span class="eyebrow">PWA mobile-first • QR code sécurisé • multi-magasins</span>
+            <h1>La carte de fidélité digitale pour vos commerces préférés</h1>
+            <p class="hero-lead">
+              Une application mobile simple pour cumuler des points, suivre ses récompenses et présenter un QR code
+              sécurisé en magasin.
             </p>
+
             <div class="hero-actions">
-              <a class="button button-primary" href="#screens">Découvrir les écrans</a>
-              <a class="button button-secondary" href="#privacy">Voir la politique de confidentialité</a>
+              <a class="button button-primary" href="#client">Découvrir le fonctionnement</a>
+              <a class="button button-secondary" href="#merchants">Devenir vendeur</a>
             </div>
+
+            <p class="merchant-note">
+              <strong>Vous êtes commerçant ?</strong> Contactez-moi pour obtenir un accès vendeur et créer votre magasin.
+            </p>
 
             <dl class="hero-metrics">
               <div>
-                <dt>10 tampons</dt>
-                <dd>Visualisation immédiate de la progression fidélité</dd>
+                <dt>1 application</dt>
+                <dd>Pour retrouver vos cartes de fidélité de plusieurs commerces au même endroit.</dd>
               </div>
               <div>
-                <dt>SSO</dt>
-                <dd>Connexion avec Google ou Microsoft</dd>
+                <dt>QR code temporaire</dt>
+                <dd>Présenté en caisse pour ajouter des points de façon sécurisée.</dd>
               </div>
               <div>
-                <dt>Firebase EU</dt>
-                <dd>Hébergement et diffusion en région européenne</dd>
+                <dt>Accès vendeur sur autorisation</dt>
+                <dd>La création d’un magasin nécessite une validation préalable.</dd>
               </div>
             </dl>
           </div>
 
-          <div class="phone-showcase">
-            <div class="orb orb-one"></div>
-            <div class="orb orb-two"></div>
-            <div class="phone-card">
-              <div class="phone-header">
-                <span class="camera-dot"></span>
-                <span class="phone-title">Dernier magasin enregistré</span>
-                <button class="menu-chip" type="button">☰</button>
+          <div class="hero-showcase" aria-label="Prévisualisation de l’application">
+            <article class="device-card primary-device">
+              <div class="device-header">
+                <span class="device-pill">Client</span>
+                <span class="status-dot"></span>
               </div>
 
-              <section class="store-card">
-                <div class="store-logo">C</div>
+              <div class="loyalty-card">
                 <div>
-                  <p class="label">Magasin actif</p>
-                  <h2>Café Lumière</h2>
-                  <p class="muted">Votre prochain café offert est à portée de scan.</p>
+                  <p class="mini-label">Carte active</p>
+                  <h2>Café Nova</h2>
+                  <p>6 points cumulés • 1 boisson offerte à 10 points</p>
                 </div>
-              </section>
-
-              <div class="stamp-grid" aria-label="Progression fidélité">
-                <span class="stamp filled">☕</span>
-                <span class="stamp filled">☕</span>
-                <span class="stamp filled">☕</span>
-                <span class="stamp filled">☕</span>
-                <span class="stamp">☕</span>
-                <span class="stamp">☕</span>
-                <span class="stamp">☕</span>
-                <span class="stamp">☕</span>
-                <span class="stamp">☕</span>
-                <span class="stamp">☕</span>
+                <span class="store-avatar">CN</span>
               </div>
 
-              <button class="button button-primary button-full" id="toggle-qr" type="button">
-                Afficher le QR code
+              <div class="progress-card">
+                <div class="progress-copy">
+                  <strong>Vos récompenses</strong>
+                  <span>Encore 4 points avant votre prochaine récompense.</span>
+                </div>
+                <div class="stamp-grid" aria-label="Progression de fidélité">
+                  <span class="stamp filled"></span>
+                  <span class="stamp filled"></span>
+                  <span class="stamp filled"></span>
+                  <span class="stamp filled"></span>
+                  <span class="stamp filled"></span>
+                  <span class="stamp filled"></span>
+                  <span class="stamp"></span>
+                  <span class="stamp"></span>
+                  <span class="stamp"></span>
+                  <span class="stamp"></span>
+                </div>
+              </div>
+
+              <button class="button button-primary button-full" id="toggle-qr" type="button" aria-expanded="false">
+                Afficher le QR code sécurisé
               </button>
-
-              <div class="swipe-hint">
-                <span>Balayage vers le haut</span>
-                <strong>Le logo magasin peut aussi s’afficher en grand format</strong>
-              </div>
 
               <div class="qr-panel" id="qr-panel" hidden>
                 <div class="qr-code" aria-hidden="true"></div>
-                <p>Présentez ce QR code au vendeur pour valider votre passage.</p>
+                <p>Code dynamique à présenter en caisse pour un scan rapide et protégé contre la réutilisation.</p>
               </div>
-            </div>
+            </article>
+
+            <article class="device-card secondary-device">
+              <div class="device-header">
+                <span class="device-pill seller-pill">Vendeur</span>
+                <span class="scan-ready">Caméra prête</span>
+              </div>
+
+              <div class="scanner-card">
+                <div class="scanner-frame">
+                  <span>Scanner le QR code client</span>
+                </div>
+                <div class="counter-row">
+                  <button type="button" aria-label="Retirer un point">−</button>
+                  <strong>+2 points</strong>
+                  <button type="button" aria-label="Ajouter un point">+</button>
+                </div>
+                <div class="server-badge">Attribution validée via le serveur</div>
+              </div>
+
+              <ul class="mini-list">
+                <li>Gestion sécurisée du magasin</li>
+                <li>Configuration du logo, des couleurs et de la récompense</li>
+                <li>Historique des transactions fidélité</li>
+              </ul>
+            </article>
           </div>
         </div>
       </header>
 
       <main>
-        <section class="section" id="experience">
-          <div class="section-heading">
-            <span class="eyebrow">Présentation</span>
-            <h2>Le fonctionnement de Loyalty Pass en un coup d’œil</h2>
-            <p>
-              L’application centralise les commerces favoris, simplifie l’accumulation des points et donne au vendeur un
-              outil rapide pour créditer un ou plusieurs passages.
-            </p>
+        <section class="section overview-section" aria-label="Bénéfices principaux">
+          <div class="section-heading narrow">
+            <span class="eyebrow">Pourquoi Loyalty Pass</span>
+            <h2>Une expérience claire pour les clients, un outil simple pour les commerçants</h2>
           </div>
 
-          <div class="feature-grid">
-            <article class="feature-card">
-              <h3>Parcours client immédiat</h3>
-              <p>Le dernier magasin utilisé est affiché par défaut avec son logo, son nom et la jauge de 10 tampons.</p>
+          <div class="overview-grid">
+            <article class="overview-card">
+              <h3>Pour les clients</h3>
+              <p>Retrouvez vos cartes fidélité, vos points et vos récompenses dans une seule application mobile.</p>
             </article>
-            <article class="feature-card">
-              <h3>Navigation fluide</h3>
-              <p>Le menu latéral regroupe les magasins enregistrés, la recherche par nom ou adresse et l’accès aux paramètres.</p>
+            <article class="overview-card">
+              <h3>Pour les vendeurs</h3>
+              <p>Scannez le QR code du client, attribuez les points et pilotez votre magasin depuis un espace sécurisé.</p>
             </article>
-            <article class="feature-card">
-              <h3>Paramètres personnalisés</h3>
-              <p>Le compte, la localisation, les statistiques, la création de magasin et l’espace vendeur y sont réunis.</p>
-            </article>
-            <article class="feature-card">
-              <h3>Espace vendeur sécurisé</h3>
-              <p>Le mode vendeur active directement le scan QR code et permet d’attribuer plusieurs points en une action.</p>
-            </article>
-          </div>
-
-          <div class="flow-grid">
-            <article>
-              <span>1</span>
-              <h3>Le client ouvre sa carte</h3>
-              <p>Le dernier commerce consulté est proposé automatiquement pour réduire les actions nécessaires.</p>
-            </article>
-            <article>
-              <span>2</span>
-              <h3>Le QR code est affiché</h3>
-              <p>Un bouton dédié ouvre le code à scanner, avec une lecture rapide côté comptoir.</p>
-            </article>
-            <article>
-              <span>3</span>
-              <h3>Le vendeur crédite les points</h3>
-              <p>Le compteur permet d’ajouter plusieurs passages si le client achète plusieurs produits éligibles.</p>
+            <article class="overview-card">
+              <h3>Pour la confiance</h3>
+              <p>Les données utiles seulement, des accès limités et des opérations sensibles réalisées côté serveur.</p>
             </article>
           </div>
         </section>
 
-        <section class="section" id="screens">
+        <section class="section" id="client">
           <div class="section-heading">
-            <span class="eyebrow">Écrans clés</span>
-            <h2>Des vues conçues pour des gestes simples et rapides</h2>
+            <span class="eyebrow">Comment ça marche côté client</span>
+            <h2>Une fidélité digitale simple à utiliser au quotidien</h2>
+            <p>
+              Loyalty Pass accompagne le client depuis la connexion jusqu’au passage en caisse, avec une expérience
+              pensée pour le mobile et pour plusieurs commerces.
+            </p>
           </div>
 
-          <div class="screen-grid">
-            <article class="screen-card">
-              <div class="screen-card-header">
-                <span class="screen-badge">Page principale</span>
-                <strong>Vue magasin prioritaire</strong>
-              </div>
-              <ul>
-                <li>Affichage du dernier magasin enregistré</li>
-                <li>Logo, nom et progression sur 10 points</li>
-                <li>Bouton de révélation du QR code</li>
-                <li>Possibilité d’afficher le logo via un balayage vers le haut</li>
-              </ul>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-index">1</span>
+              <h3>Créer un compte ou se connecter</h3>
+              <p>Le client accède à son espace personnel pour retrouver ses cartes fidélité et ses informations utiles.</p>
             </article>
-
-            <article class="screen-card">
-              <div class="screen-card-header">
-                <span class="screen-badge">Menu</span>
-                <strong>Bandeau latéral gauche</strong>
-              </div>
-              <ul>
-                <li>Ouverture via bouton en haut à gauche ou geste latéral</li>
-                <li>Recherche fixe visible si plus de 5 magasins enregistrés</li>
-                <li>Recherche du magasin par nom ou adresse</li>
-                <li>Liste des commerces inscrits avec accès direct à chaque page</li>
-                <li>Accès aux paramètres via l’icône engrenage en bas</li>
-              </ul>
+            <article class="step-card">
+              <span class="step-index">2</span>
+              <h3>Rejoindre un magasin</h3>
+              <p>Depuis la liste des commerces disponibles, il sélectionne le magasin qui l’intéresse et active sa carte.</p>
             </article>
-
-            <article class="screen-card">
-              <div class="screen-card-header">
-                <span class="screen-badge">Paramètres</span>
-                <strong>Compte et personnalisation</strong>
-              </div>
-              <ul>
-                <li>Nom du compte utilisateur</li>
-                <li>Activation ou désactivation de la localisation</li>
-                <li>Statistiques : magasins, points, passages</li>
-                <li>Création de magasin et configuration vendeur conditionnelle (nom, logo, couleur)</li>
-              </ul>
+            <article class="step-card">
+              <span class="step-index">3</span>
+              <h3>Suivre ses points et sa récompense</h3>
+              <p>Il consulte sa progression, le seuil de récompense et les avantages déjà disponibles.</p>
             </article>
-
-            <article class="screen-card">
-              <div class="screen-card-header">
-                <span class="screen-badge">Page vendeur</span>
-                <strong>Scan QR code et validation</strong>
-              </div>
-              <ul>
-                <li>Accès réservé aux comptes autorisés en backoffice</li>
-                <li>Compteur initialisé à 1 pour créditer plusieurs points</li>
-                <li>Caméra activée directement pour accélérer le scan</li>
-                <li>Message de confirmation après validation du point</li>
-              </ul>
+            <article class="step-card">
+              <span class="step-index">4</span>
+              <h3>Afficher son QR code en caisse</h3>
+              <p>Le vendeur le scanne pour ajouter les points, sans modification directe depuis le téléphone du client.</p>
             </article>
           </div>
 
-          <div class="mockup-strip" aria-label="Prévisualisation des écrans">
-            <article class="mini-phone">
-              <header>
-                <span></span><span></span><span></span>
-              </header>
-              <div class="mini-menu">
-                <div class="search-pill">🔎 Rechercher un magasin</div>
-                <div class="store-pill active">Café Lumière</div>
-                <div class="store-pill">Boulangerie Nova</div>
-                <div class="store-pill">Pasta Atelier</div>
-                <div class="gear-pill">⚙ Paramètres</div>
+          <div class="feature-layout">
+            <article class="feature-panel">
+              <h3>Fonctionnalités client</h3>
+              <ul class="check-list">
+                <li>Carte fidélité dédiée pour chaque magasin rejoint.</li>
+                <li>Suivi des points et des récompenses en temps réel.</li>
+                <li>QR code dynamique pour le passage en caisse.</li>
+                <li>Recherche de magasins par nom ou adresse.</li>
+                <li>Option de géolocalisation pour proposer les magasins proches.</li>
+                <li>Désinscription possible d’un magasin depuis les paramètres.</li>
+              </ul>
+            </article>
+
+            <article class="visual-panel client-visual" aria-label="Visuel mobile côté client">
+              <div class="panel-screen search-screen">
+                <p class="panel-title">Magasins disponibles</p>
+                <div class="search-bar">Rechercher un commerce</div>
+                <div class="merchant-chip active">Café Nova • à proximité</div>
+                <div class="merchant-chip">Maison Florale</div>
+                <div class="merchant-chip">Boulangerie Auguste</div>
+              </div>
+              <div class="panel-screen settings-screen">
+                <p class="panel-title">Paramètres</p>
+                <div class="toggle-line"><span>Localisation</span><strong>Activée</strong></div>
+                <div class="toggle-line"><span>Magasin rejoint</span><strong>3</strong></div>
+                <div class="toggle-line"><span>Désinscription</span><strong>Disponible</strong></div>
               </div>
             </article>
-            <article class="mini-phone">
-              <header>
-                <span></span><span></span><span></span>
-              </header>
-              <div class="stats-panel">
-                <p class="mini-title">Paramètres</p>
-                <div class="toggle-row"><span>Localisation</span><strong>Activée</strong></div>
-                <div class="stat-row"><span>Magasins</span><strong>12</strong></div>
-                <div class="stat-row"><span>Points</span><strong>84</strong></div>
-                <div class="stat-row"><span>Passages</span><strong>37</strong></div>
+          </div>
+        </section>
+
+        <section class="section seller-section" id="seller">
+          <div class="section-heading">
+            <span class="eyebrow">Comment ça marche côté vendeur</span>
+            <h2>Un espace sécurisé pour gérer votre programme fidélité</h2>
+            <p>
+              L’accès vendeur n’est pas ouvert automatiquement. Après autorisation, le commerçant dispose d’outils dédiés
+              pour scanner les clients, attribuer des points et gérer son magasin.
+            </p>
+          </div>
+
+          <div class="feature-layout reverse-layout">
+            <article class="visual-panel seller-visual" aria-label="Visuel vendeur">
+              <div class="panel-screen seller-screen">
+                <p class="panel-title">Scanner vendeur</p>
+                <div class="camera-zone"></div>
+                <div class="counter-line"><span>Nombre de points</span><strong>2</strong></div>
+                <div class="server-line">Ajout confirmé via le serveur</div>
+              </div>
+              <div class="panel-screen config-screen">
+                <p class="panel-title">Configuration magasin</p>
+                <div class="config-row"><span>Nom</span><strong>Café Nova</strong></div>
+                <div class="config-row"><span>Adresse</span><strong>12 rue des Halles</strong></div>
+                <div class="config-row"><span>Récompense</span><strong>1 boisson offerte</strong></div>
+                <div class="config-row"><span>Suppression</span><strong>Sur demande</strong></div>
               </div>
             </article>
-            <article class="mini-phone">
-              <header>
-                <span></span><span></span><span></span>
-              </header>
-              <div class="seller-panel">
-                <div class="counter">− <strong>1</strong> +</div>
-                <div class="scanner-frame"></div>
-                <p>QR code scanné • Point validé</p>
+
+            <article class="feature-panel">
+              <h3>Fonctionnement vendeur</h3>
+              <ul class="check-list">
+                <li>Le vendeur dispose d’un espace sécurisé avec des droits distincts de ceux du client.</li>
+                <li>Il scanne le QR code du client avec la caméra de son appareil.</li>
+                <li>Il choisit le nombre de points à attribuer selon l’achat réalisé.</li>
+                <li>Les points sont ajoutés via le serveur, pas directement depuis le téléphone.</li>
+                <li>Il configure son magasin : nom, adresse, logo, couleur, seuil de récompense et texte de récompense.</li>
+                <li>Il peut demander la suppression de son magasin si son programme fidélité s’arrête.</li>
+              </ul>
+
+              <div class="callout-card">
+                <h3>Devenir vendeur</h3>
+                <p>
+                  Pour devenir vendeur, contactez-moi afin d’obtenir un accès vendeur. La création d’un magasin nécessite
+                  une autorisation préalable.
+                </p>
+                <a class="button button-primary" href="#merchants">Demander un accès vendeur</a>
               </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="security">
+          <div class="section-heading">
+            <span class="eyebrow">Sécurité</span>
+            <h2>Des garanties pensées pour limiter les accès et réduire les risques de fraude</h2>
+          </div>
+
+          <div class="security-grid">
+            <article class="security-card">
+              <h3>Accès contrôlés</h3>
+              <p>Authentification obligatoire et rôles séparés entre client et vendeur.</p>
+            </article>
+            <article class="security-card">
+              <h3>Droits limités</h3>
+              <p>Les vendeurs ne peuvent gérer que leurs propres magasins et leurs opérations autorisées.</p>
+            </article>
+            <article class="security-card">
+              <h3>QR code protégé</h3>
+              <p>Les QR codes sont signés, temporaires et protégés contre la réutilisation.</p>
+            </article>
+            <article class="security-card">
+              <h3>Attribution de points sécurisée</h3>
+              <p>Les points ne sont pas modifiables directement depuis l’interface client.</p>
+            </article>
+            <article class="security-card">
+              <h3>Traçabilité</h3>
+              <p>Chaque attribution ou utilisation de récompense est enregistrée dans un historique de transactions.</p>
+            </article>
+            <article class="security-card">
+              <h3>Règles Firebase</h3>
+              <p>Les accès aux données sont limités par des règles de sécurité Firebase adaptées aux rôles.</p>
             </article>
           </div>
         </section>
 
         <section class="section privacy-section" id="privacy">
           <div class="section-heading">
-            <span class="eyebrow">Politique de confidentialité</span>
-            <h2>Traitement des données et sécurité</h2>
+            <span class="eyebrow">Confidentialité des données</span>
+            <h2>Une politique claire, à compléter avec vos coordonnées et informations légales</h2>
             <p>
-              Loyalty Pass s’appuie sur une authentification fédérée et un hébergement européen pour limiter la collecte de
-              données au strict nécessaire au service.
+              Cette page présente le fonctionnement actuel de Loyalty Pass en matière de données personnelles. Les
+              coordonnées définitives, l’identité de l’éditeur et les mentions légales doivent être complétées avant
+              publication finale.
             </p>
           </div>
 
-          <div class="privacy-grid">
-            <article class="privacy-card">
+          <div class="privacy-stack">
+            <article class="privacy-card wide-card">
               <h3>Données collectées</h3>
-              <p>
-                Les données utilisées sont celles nécessaires à la création et à l’exploitation du compte : identité fournie
-                par Google ou Microsoft, magasins suivis, points cumulés, passages validés et préférences comme la
-                localisation.
-              </p>
+              <ul class="detail-list">
+                <li>Informations de compte : nom d’affichage, adresse email, identifiant utilisateur.</li>
+                <li>Données de fidélité : magasins rejoints, nombre de points, récompenses disponibles, historique des transactions.</li>
+                <li>Données liées aux magasins : nom, adresse, logo, couleur, seuil de récompense, texte de récompense.</li>
+                <li>Données techniques nécessaires au fonctionnement de l’application.</li>
+                <li>Localisation uniquement si l’utilisateur l’active, afin de proposer les magasins les plus proches.</li>
+              </ul>
             </article>
-            <article class="privacy-card">
-              <h3>Authentification</h3>
-              <p>
-                La connexion au service repose sur le SSO Google et Microsoft. Les mots de passe ne sont donc pas gérés
-                directement par Loyalty Pass.
-              </p>
-            </article>
-            <article class="privacy-card">
-              <h3>Hébergement</h3>
-              <p>
-                Le site et les contenus associés sont hébergés sur Firebase en région européenne afin de privilégier un
-                traitement localisé des données techniques et des ressources statiques.
-              </p>
-            </article>
-            <article class="privacy-card">
-              <h3>Localisation</h3>
-              <p>
-                La localisation reste optionnelle et peut être activée ou désactivée dans les paramètres. Elle peut servir à
-                proposer en priorité les commerces les plus proches au lieu du dernier usage.
-              </p>
-            </article>
-          </div>
 
-          <div class="privacy-note">
-            <h3>Utilisation des données</h3>
-            <p>
-              Les informations servent uniquement à fournir le service de fidélité, à afficher les magasins pertinents, à
-              créditer les passages et à personnaliser l’espace vendeur lorsque le compte dispose des droits adéquats.
-            </p>
+            <div class="privacy-grid">
+              <article class="privacy-card">
+                <h3>Finalités</h3>
+                <ul class="detail-list compact-list">
+                  <li>Créer et gérer un compte utilisateur.</li>
+                  <li>Permettre au client de rejoindre des magasins et suivre ses points.</li>
+                  <li>Permettre aux vendeurs d’attribuer des points et gérer leur magasin.</li>
+                  <li>Sécuriser les QR codes et éviter les fraudes.</li>
+                  <li>Améliorer l’expérience utilisateur avec la recherche et la proximité des magasins.</li>
+                </ul>
+              </article>
+
+              <article class="privacy-card">
+                <h3>Partage des données</h3>
+                <ul class="detail-list compact-list">
+                  <li>Les données ne sont pas vendues.</li>
+                  <li>Les vendeurs n’ont accès qu’aux informations nécessaires au fonctionnement de leur programme de fidélité.</li>
+                  <li>Les données sont hébergées et traitées via Firebase / Google Cloud.</li>
+                </ul>
+              </article>
+
+              <article class="privacy-card">
+                <h3>Sécurité</h3>
+                <ul class="detail-list compact-list">
+                  <li>Authentification Firebase.</li>
+                  <li>Règles d’accès Firestore et Storage.</li>
+                  <li>QR codes signés et à durée limitée.</li>
+                  <li>Mutations sensibles réalisées côté serveur via Cloud Functions.</li>
+                </ul>
+              </article>
+
+              <article class="privacy-card">
+                <h3>Droits des utilisateurs</h3>
+                <ul class="detail-list compact-list">
+                  <li>Possibilité de se désinscrire d’un magasin.</li>
+                  <li>Possibilité de désactiver la localisation.</li>
+                  <li>Possibilité de demander la suppression ou la rectification de ses données en me contactant.</li>
+                </ul>
+              </article>
+
+              <article class="privacy-card">
+                <h3>Conservation</h3>
+                <ul class="detail-list compact-list">
+                  <li>Les données sont conservées tant que le compte ou l’accès au magasin est actif.</li>
+                  <li>Lorsqu’un client se désinscrit d’un magasin, son accès à ce magasin est supprimé.</li>
+                  <li>Lorsqu’un vendeur supprime son magasin, le suivi de fidélité associé est arrêté.</li>
+                </ul>
+              </article>
+
+              <article class="privacy-card contact-card" id="contact">
+                <h3>Contact</h3>
+                <p>
+                  Pour toute question sur vos données personnelles, pour exercer vos droits, ou pour devenir vendeur,
+                  contactez-moi : <strong>[adresse email à compléter]</strong>.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section merchant-section" id="merchants">
+          <div class="merchant-banner">
+            <div>
+              <span class="eyebrow">Pour les commerçants</span>
+              <h2>Vous souhaitez proposer votre carte fidélité digitale ?</h2>
+              <p>
+                L’accès vendeur n’est pas ouvert automatiquement. Contactez-moi pour présenter votre commerce, obtenir un
+                accès vendeur et créer votre magasin dans l’application.
+              </p>
+            </div>
+            <a class="button button-primary" href="#contact">Me contacter pour devenir vendeur</a>
           </div>
         </section>
       </main>
+
+      <footer class="site-footer">
+        <div>
+          <strong>Loyalty Pass</strong>
+          <p>Application de fidélité numérique multi-magasins.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#privacy">Confidentialité</a>
+          <a href="#merchants">Devenir vendeur</a>
+          <a href="#contact">Contact : [adresse email à compléter]</a>
+        </div>
+      </footer>
     </div>
 
     <script src="./script.js"></script>
