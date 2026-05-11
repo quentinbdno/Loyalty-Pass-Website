@@ -480,13 +480,27 @@ button {
 
 .stamp {
   aspect-ratio: 1;
+  display: grid;
+  place-items: center;
   border-radius: 16px;
   border: 1px solid rgba(101, 84, 232, 0.08);
   background: linear-gradient(180deg, #f5f2ff 0%, #ece9ff 100%);
 }
 
+.stamp::after {
+  content: "○";
+  color: rgba(101, 84, 232, 0.38);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .stamp.filled {
   background: linear-gradient(135deg, var(--primary) 0%, #8a6dff 100%);
+}
+
+.stamp.filled::after {
+  content: "✓";
+  color: #fff;
 }
 
 .qr-panel {
